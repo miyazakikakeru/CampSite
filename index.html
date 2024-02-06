@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Camp</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  
+  <body>
+    <header id="header">
+      <nav>
+        <ul>
+          <li><a href="login.html">ログイン</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="image">
+        <img src="img/camp.jpg" alt="キャンプ画像">
+      </div>
+      <form action="map.html" method="get">
+        <label for="location">場所:</label>
+        <input type="text" id="location" name="location">
+        <label for="number">人数:</label>
+        <input type="number" id="number" name="number" min="1">
+        <input type="submit" value="検索">
+      </form>
+    </main>
+    <script>
+      document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const location = document.querySelector('#location').value;
+        const number = document.querySelector('#number').value;
+
+        fetch(`/search?location=${location}&number=${number}`)
+          .then(response => response.json())
+          .then(data => {
+            // ここで検索結果を表示します。
+            // この例では、結果をコンソールに表示します。
+            console.log(data);
+          })
+          .catch(error => {
+            console.error('エラー:', error);
+          });
+      });
+    </script>
+  </body>
+</html>

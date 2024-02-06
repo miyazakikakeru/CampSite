@@ -1,0 +1,45 @@
+@charset "UTF-8";
+html{
+    font-size: 100%;
+}
+body{
+    width: 100%;
+    color: #333;
+    font-family: 'Raleway', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}
+li{
+    list-style: none;
+}
+
+header{
+    background-color: #333;
+    padding: 20px;
+}
+#header ul{
+    justify-content: flex-end;
+    display: flex;
+}
+#header li{
+    margin-right: 50px;
+}
+#header li a{
+    color: #fff;
+}
+.image img{
+    width: 1280px;
+    height: 750px;
+    flex-shrink: 0;
+    background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+}
+.form{
+    width: 500px;
+    height: 375px;
+    flex-shrink: 0;
+}
+
